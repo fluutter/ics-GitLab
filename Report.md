@@ -18,19 +18,19 @@ git clone git@github.com:fluutter/ics-GitLab.git
 将GitHub对应位置的仓库克隆到本地git。
 ## 2.2
 随后在本地打开其中的main.c文件并对第五行进行修改。
-![修改后未add][11modifiedNotAdd.png]修改完成后，终端输入`git status`，可以发现这里显示main.c文件被更改，但未提交。同时由于运行了c程序产生的`.vscode/, main, main.dSYM/`等文件未被git跟踪。
+![](images/11modifiedNotAdd.png)修改完成后，终端输入`git status`，可以发现这里显示main.c文件被更改，但未提交。同时由于运行了c程序产生的`.vscode/, main, main.dSYM/`等文件未被git跟踪。
 ## 2.3
 接下来终端输入`git add main.c`将`main.c`添加至暂存区。
 再输入`git status`，可以发现`modified:    main.c`这一行变成绿色，并且显示更改待提交。
-![](12Added.png)
+![](images/12Added.png)
 ## 2.4
 接下来终端输入`git commit -m "Complete TODO in main.c"`，将`main.c`提交。
 输入`git log --online`可以看到本地的main版本更新至刚刚更改的"Complete TODO in main.c"，但GitHub上的版本仍为Initial commit。
-![](13NotPush.png)
+![](images/13NotPush.png)
 ## 2.5
 接下来执行`git push`将本地git更改推到GitHub上。
 再输入`git log --online`可以看到，本地git和GitHub的版本都是更新过的版本了。
-![](14Pushed.png)
+![](images/14Pushed.png)
 # 3. 阅读与回答问题
 ## 3.1
 [Commit message 和 Change log 编写指南](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)这个文档介绍了：
@@ -49,22 +49,22 @@ git clone git@github.com:fluutter/ics-GitLab.git
 # 4. 制造并解决冲突
 ## 4.1
 在文件夹中终端处输入`git branch feature`新建一个名为feature的分支，输入`git switch feature`转到这个新分支。
-![](21newBranch.png)
+![](images/21newBranch.png)
 ## 4.2
 在feature分支处，修改main.c的第五行代码，并add与commit。
-![](22FeatureEdit.png)
+![](images/22FeatureEdit.png)
 随后，转回main分支，再次修改main.c的第五行代码，并add与commit。
-![](23MainEdit.png)
+![](images/23MainEdit.png)
 ## 4.3
 输入`git merge feature`试图合并两个分支。显示产生冲突，自动合并失败。在无法自动确定同一处修改应如何组合时，需要用户介入解决冲突。
-![](24CONFLICT.png)
+![](images/24CONFLICT.png)
 ## 4.4
 点击`<<<<<<< HEAD (Current Change)`上方的“Accept both changes”后，add。
 查看git状态，显示冲突已解决。
-![](25merged.png)
+![](images/25merged.png)
 ## 4.5
 接下来commit，随后查看git的提交历史图。
-![](26tree.png)
+![](images/26tree.png)
 - `112173a` 是最初克隆下来的版本。
 - `cf73c9a` 是 `main` 上第一次修改与提交的版本。
 - `e775b91` 是 `main` 分支上的修改。
